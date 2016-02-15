@@ -1,4 +1,6 @@
 # ChatOps service
+[Rocketchat]: https://rocket.chat/
+[Hubot]: https://hubot.github.com/
 
 This service composed of two services, [RocketChat] and [Hubot], deployed into Docker containers on a host on AWS inside of a VPC. Mean to be used with a VPC.
 
