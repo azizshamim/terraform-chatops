@@ -4,6 +4,8 @@ variable "domain" {}
 variable "ssh-private-key" {}
 variable "vpc_id" {}
 variable "vpc_subnet_id" {}
+variable "admin_email" {}
+variable "admin_password" {}
 
 # Optional variables to override in using the module
 variable "ami" {
@@ -64,6 +66,8 @@ resource "template_file" "docker_compose" {
     root_url = "http://${var.domain}:3000"
     rocketchat_user = "${var.rocketchat_user}"
     rocketchat_password = "${var.rocketchat_password}"
+    admin_email = "${var.admin_email}"
+    admin_password= "${var.admin_password}"
   }
 }
 resource "aws_instance" "chat" {

@@ -6,13 +6,15 @@ mongo:
   command: mongod --smallfiles --oplogSize 128
 
 rocketchat:
-  image: rocketchat/rocket.chat:latest
+  image: rocketchat/rocket.chat:develop
   volumes:
     - ./uploads:/app/uploads
   environment:
     - PORT=3000
     - ROOT_URL=${root_url}
     - MONGO_URL=mongodb://mongo:27017/rocketchat
+    - ADMIN_EMAIL=${admin_email}
+    - ADMIN_PASS=${admin_password}
   links:
     - mongo:mongo
   ports:
